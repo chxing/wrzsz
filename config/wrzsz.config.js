@@ -4,14 +4,14 @@ const { version } = require('../package.json')
 const os = require('os')
 const fs = require('fs')
 const path = require('path')
-const { decode } = require('./codec')
+const { decode } = require('../lib/codec')
 
-const CONFIG = path.join(os.homedir(), '.wrzsz', 'remote.json')
+const CONFIG_FILE = path.join(os.homedir(), '.wrzsz', 'remote.json')
 
-class Config {
+class ConfigResolve {
     async initialize () {
-        if (!fs.existsSync(CONFIG)) {
-            const dir = path.dirname(CONFIG)
+        if (!fs.existsSync(CONFIG_FILE)) {
+            const dir = path.dirname(CONFIG_FILE)
             if (!fs.existsSync(dir)) fs.mkdirSync(dir)
             this.data = { history: [], histsize: 5, servers: [] }
             this.writeFileSync()
@@ -22,13 +22,13 @@ class Config {
     }
 
     readFileSync () {
-        const text = fs.readFileSync(CONFIG).toString('utf-8')
+        const text = fs.readFileSync(CONFIG_FILE).toString('utf-8')
         this.data = JSON.parse(text)
     }
 
     writeFileSync () {
         const text = JSON.stringify(this.data, null, '\t')
-        fs.writeFileSync(CONFIG, text, 'utf-8')
+        fs.writeFileSync(CONFIG_FILE, text, 'utf-8')
     }
 
     flushViewSync () { // this.data => this.view
@@ -104,5 +104,5 @@ class Config {
     }
 }
 
-const config = new Config()
-module.exports = { config, version }
+const config = new ConfigResolve()
+module.exports = { version, config }

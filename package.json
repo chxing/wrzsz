@@ -1,11 +1,12 @@
 {
   "name": "wrzsz",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple tool similar to lrzsz on Windows",
   "main": "./index.js",
   "bin": {
     "sz": "./bin/sz.js",
-    "rz": "./bin/rz.js"
+    "rz": "./bin/rz.js",
+    "rcd": "./bin/rcd.js"
   },
   "author": "chxing",
   "license": "ISC",
@@ -14,15 +15,16 @@
     "url": "https://git@github.com/chxing/wrzsz.git"
   },
   "dependencies": {
-    "commander": "^4.0.1",
-    "inquirer": "^7.0.0",
+    "commander": "^4.1.1",
+    "inquirer": "^7.1.0",
+    "node-cmd": "^3.0.0",
     "progress": "^2.0.3",
     "ssh2-utils": "^1.0.28"
   },
   "devDependencies": {
-    "eslint": "^6.7.2",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"

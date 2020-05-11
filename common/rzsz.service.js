@@ -1,8 +1,8 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
-const { config } = require('./config')
-const { encode } = require('./codec')
-const { uploadFile } = require('./ssh2')
+const { config } = require('../config/wrzsz.config')
+const { encode } = require('../lib/codec')
+const { uploadFile } = require('../lib/ssh2')
 
 async function uploadLocalFile (files, options) {
     const params = { passwd: options.passwd }

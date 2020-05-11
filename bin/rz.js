@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
 // @ts-ignore
-const { version } = require('../package.json')
 const program = require('commander')
-const { config } = require('./config')
+const { version, config } = require('../config/wrzsz.config')
 
 program
     .description('// TODO unimplemented')
     .version(version, '-v, --version', 'output the current version')
 
 program.arguments('<file>')
-    .action((command, file) => {
+    .action((file, options) => {
+        console.log('Command not implemented.')
     })
 
 async function app () {

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const program = require('commander')
-const { version, config } = require('./config')
-const { uploadLocalFile } = require('./action')
-const { removeHostInquirer } = require('./action')
+const { version, config } = require('../config/wrzsz.config')
+const { removeHostInquirer } = require('../common/rzsz.service')
+const { uploadLocalFile } = require('../common/rzsz.service')
 
 program
     .usage('[options] <file>')
